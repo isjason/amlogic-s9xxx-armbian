@@ -471,6 +471,7 @@ compile_env() {
 
     # Enable/Disabled Linux Kernel Clang LTO
     [[ "${toolchain_name}" == "clang" ]] && {
+            scripts/config -d LTO_CLANG_THIN
             scripts/config -e LTO_CLANG_FULL
     }
 
