@@ -471,13 +471,7 @@ compile_env() {
 
     # Enable/Disabled Linux Kernel Clang LTO
     [[ "${toolchain_name}" == "clang" ]] && {
-        kernel_x="$(echo "${kernel_version}" | cut -d '.' -f1)"
-        kernel_y="$(echo "${kernel_version}" | cut -d '.' -f2)"
-        if [[ "${kernel_x}" -ge "6" ]] || [[ "${kernel_x}" -eq "5" && "${kernel_y}" -ge "12" ]]; then
             scripts/config -e LTO_CLANG_FULL
-        else
-            scripts/config -d LTO_CLANG_THIN
-        fi
     }
 
     # Make menuconfig
